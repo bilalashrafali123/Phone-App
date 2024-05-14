@@ -124,3 +124,8 @@ function AddToCart (){
     console.log(arr);
 }
 
+function gotocart(){
+    console.log('cart');
+    localStorage.setItem('cartItems' , JSON.stringify(arr));
+    window.location = 'cart.html';
+}
