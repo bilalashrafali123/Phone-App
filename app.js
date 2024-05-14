@@ -115,6 +115,12 @@ renderItems()
 
 
 function AddToCart (){
-
+    if(arr.includes(phones[index])){
+        phones[index].quantity += 1;
+    }else{
+        phones[index].quantity = 1;
+        arr.push(phones[index]);
+    }
+    console.log(arr);
 }
 
