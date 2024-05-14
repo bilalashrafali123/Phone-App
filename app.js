@@ -86,7 +86,13 @@ const phones = [
 
 ]
 
-
+let arr;
+let items = JSON.parse(localStorage.getItem('cartItems'));
+if(items === null){
+    arr = [];
+}else{
+    arr = items;
+}
 
 const div = document.querySelector('.div-2')
 
@@ -107,4 +113,8 @@ function renderItems (){
 
 renderItems()
 
+
+function AddToCart (){
+
+}
 
