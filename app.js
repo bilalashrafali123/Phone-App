@@ -64,6 +64,26 @@ const phones = [
         price: 300000
     },
 
+    {
+        brand: 'Samsung',
+        model: 's20 ultra',
+        ram: 50,
+        rom: 1024,
+        camera: '60 megapixel',
+        price: 300000
+    },
+
+    {
+        brand: 'Iphone ',
+        model: '15 pro max',
+        ram: 50,
+        rom: 1024,
+        camera: '60 megapixel',
+        price: 300000
+    },
+
+
+
 ]
 
 
@@ -74,11 +94,11 @@ const div = document.querySelector('.div-2')
 function renderItems (){
     for(let i = 0; i < phones.length; i++){
         div.innerHTML += `
-        <div class="card bg-dark text-light border-light" style="width: 18rem;">
-            <div class="card-body">
+        <div class="card  text-light border-light bg-dark" style="width: 18rem;">
+            <div class="card-body ">
                 <h5 class="card-title">${phones[i].brand +' '+ phones[i].model}</h5>
                 <p class="card-text">Rs ${phones[i].price}</p>
-                <button onclick="addtocart(${i})" class="btn btn-primary">Add to Cart</button>
+                <button onclick="addtocart(${i})" class="btn btn-outline-success">Add to Cart</button>
             </div>
         </div>
         `
