@@ -56,3 +56,13 @@ function removeItems(){
     localStorage.setItem("cartItem", JSON.stringify(cartArray));
     location.reload();
 }
+
+
+const totalAmount = document.querySelector('#h3')
+let totalPrice = 0 ; 
+
+function AddAmount(){
+    for(j=0 ; j<cartItems.length ; j++){
+        
+    }
+}
