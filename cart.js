@@ -11,8 +11,8 @@ function renderArray(){
 
 if(cartArray!=null && cartArray.length>0){
   for (let i = 0; i < cartArray.length; i++) {
-    cartData.innerHTML += `<div class="card mt-3  " style="width: 18rem;">
-  <div class="card-body br bh">
+    cartData.innerHTML += `<div class=" card mt-3 br  " style="width: 18rem;">
+  <div class="card-body  bh">
     <p class="card-text"> Product: ${
       cartArray[i].brand + " " + cartArray[i].model
     }</p>
@@ -74,7 +74,7 @@ function total(){
   for(let j=0 ; j<cartArray.length; j++){
     totalPrice+=(cartArray[j].price*cartArray[j].quantity);
   }
-  totalAmount.innerHTML=`<h3 class="text-light text-center mt-5">Total Amount 👉 ${totalPrice} PKR <h3/>`
+  totalAmount.innerHTML=`<h3 class="text-light text-center mt-5">SubTotal 👉 ${totalPrice} PKR <h3/>`
 }
 
 total()

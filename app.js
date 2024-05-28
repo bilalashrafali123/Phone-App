@@ -5,7 +5,7 @@ const phones = [
         ram: 8,
         rom: 256,
         camera: '20 megapixel',
-        price: 15000
+        price:15000
     },
     {
         brand: 'Redmi',
