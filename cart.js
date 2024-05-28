@@ -1,25 +1,29 @@
-console.log("cart items")
+// console.log("cart items")
 
 const cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
-const div = document.querySelector('div');
+const div1 = document.querySelector('.div-1');
 
-function renderItems (){
-    if(cartItems != null  && cartItems.length > 0 ){
-        for(i = 0 ; i > cartItems.length ; i++){
-            console.log(cartItems[i]);
-             div.innerHTML += `
-            <div class="border border-light rounded m-5 p-3">
-            <h1>Model: ${cartItems[i].brand + ' ' + cartItems[i].model}</h1>
-            <h1>Price: ${cartItems[i].price}</h1>
+function renderArr (){
+     if(cartItems != null && cartItems.length > 0 ){
+        div1.innerHTML += `<div class="card mt-3" style="width: 18rem;">
+        <div class="card-body bg-dark text-light">
+        <p class = "card-text"> product : ${
+            cartItems[i].brand + " " + cartItems[i].model }</p>
+            <p class="card-text"> Camera: ${cartItems[i].camera}</p>
+           <p class="card-text">Ram: ${cartItems[i].ram} GB</p>
+           <p class="card-text">Rom: ${cartItems[i].rom} GB</p>
+           <p class = "card-text">Add items :<button onclick="AddItems(${i})">+</button> ${
+            cartArray[i].quantity } 
+            <button onclick="LessItems(${i})">-</button></p>
+            <p class="card-text">Price: ${cartArray[i].price}</p>
+            <button class="btn btn-outline-danger" onclick="removeItems(${i})">Remove</button>
             </div>
-            `
-        }
-        }else{
-            console.log('empty')
-            div.innerHTML = `
-            <h3 class="text-center">I think you haven't buy any think</h3>
-            `
-        }
-    }
- renderItems()
+            </div>`;
+     }else{
+        div1.innerHTML = `<h2>I think You Haven't Bought Anything...🙄</h2>`
+     }
+}
+
+renderArr()
+

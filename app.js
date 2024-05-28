@@ -114,11 +114,13 @@ function renderItems (){
 renderItems()
 
 
-function AddToCart (){
+
+
+function addtocart(index){
     if(arr.includes(phones[index])){
         phones[index].quantity += 1;
     }else{
-        phones[index].quantity = 1;
+        phones[index].quantity -= 1;
         arr.push(phones[index]);
     }
     console.log(arr);
@@ -129,3 +131,4 @@ function gotocart(){
     localStorage.setItem('cartItems' , JSON.stringify(arr));
     window.location = 'cart.html';
 }
+
