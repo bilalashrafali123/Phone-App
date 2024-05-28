@@ -2,7 +2,7 @@
 
 const cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
-const div1 = document.querySelector('.div-1');
+const div1 = document.querySelector('#div-1');
 
 function renderArr (){
      if(cartItems != null && cartItems.length > 0 ){
