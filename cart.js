@@ -33,12 +33,12 @@ function LessItems(less){
         cartItems.splice(sub , 1)
         localStorage.setItem("cartItem", JSON.stringify(cartArray));
         location.reload()
-       total()
+       AddAmount()
     }else{
         div1.innerHTML = "";
         cartItems[less].quantity -= 1;
         renderArray();
-        total()
+        AddAmount()
     }
 }
 
@@ -47,7 +47,7 @@ function AddItems(Add){
     div1.innerHTML=''
     cartItems[Add].quantity+=1;
     renderArray();
-    total();
+    AddAmount();
 }
 
 
@@ -63,6 +63,9 @@ let totalPrice = 0 ;
 
 function AddAmount(){
     for(j=0 ; j<cartItems.length ; j++){
-        
+    totalPrice +=(cartItems[j].price*cartItems[j].quantity)
     }
+    totalAmount.innerHTML = `<h3 class="text-center mt-5">Total Amount : PKR ${totalPrice} </h3>`
 }
+
+AddAmount()
