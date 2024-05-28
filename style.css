@@ -6,6 +6,9 @@
     background-color: rgb(245, 245, 209);
 }
 
-#bg{
+.bh{
     background-color: rgb(245, 245, 209);
+}
+.br{
+    border-radius: 40px;
 }

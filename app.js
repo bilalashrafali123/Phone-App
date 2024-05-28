@@ -100,11 +100,11 @@ const phones = [
   const div = document.querySelector("#div");
   
   for(let i=0; i<phones.length; i++){
-      div.innerHTML += `<div class="card color" style="width: 14rem;">
-        <div class="card-body">
+      div.innerHTML += `<div class="card color br" style="width: 14rem;">
+        <div class="card-body ">
       <p class="card-text">Product: ${phones[i].brand + " " + phones[i].model}</p>
       <p class="card-text">Price: ${phones[i].price} PKR</p>
-      <button class="btn btn-outline-success" onclick="addToCart(${i})">ADD TO CART </i></button>
+      <button class="btn btn-outline-success" onclick="addToCart(${i})">Time to order</i></button>
     </div>
   </div>`;
   }
