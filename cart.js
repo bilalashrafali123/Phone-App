@@ -26,3 +26,28 @@ function renderArr (){
 }
 
 renderArr()
+
+
+function LessItems(less){
+    if(cartItems[less].quantity===1){
+        cartItems.splice(sub , 1)
+        localStorage.setItem("cartItem", JSON.stringify(cartArray));
+        location.reload()
+       total()
+    }else{
+        div1.innerHTML = "";
+        cartItems[less].quantity -= 1;
+        renderArray();
+        total()
+    }
+}
+
+
+function AddItems(Add){
+    div1.innerHTML=''
+    cartItems[Add].quantity+=1;
+    renderArray();
+    total();
+}
+
+
