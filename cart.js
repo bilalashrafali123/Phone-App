@@ -51,3 +51,8 @@ function AddItems(Add){
 }
 
 
+function removeItems(){
+    cartItems.splice(index , 1);
+    localStorage.setItem("cartItem", JSON.stringify(cartArray));
+    location.reload();
+}
