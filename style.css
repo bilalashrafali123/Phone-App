@@ -1,4 +1,11 @@
 .bg{
-    background-color:rgb(1, 69, 1);
+    background-color:rgb(73, 140, 102);
 }
 
+.color{
+    background-color: rgb(245, 245, 209);
+}
+
+#bg{
+    background-color: rgb(245, 245, 209);
+}

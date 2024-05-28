@@ -1,71 +1,80 @@
-// console.log("cart items")
 
-const cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
-const div1 = document.querySelector('#div-1');
+let cartArray = JSON.parse(localStorage.getItem("cartItem"));
 
-function renderArr (){
-     if(cartItems != null && cartItems.length > 0 ){
-        div1.innerHTML += `<div class="card mt-3" style="width: 18rem;">
-        <div class="card-body bg-dark text-light">
-        <p class = "card-text"> product : ${
-            cartItems[i].brand + " " + cartItems[i].model }</p>
-            <p class="card-text"> Camera: ${cartItems[i].camera}</p>
-           <p class="card-text">Ram: ${cartItems[i].ram} GB</p>
-           <p class="card-text">Rom: ${cartItems[i].rom} GB</p>
-           <p class = "card-text">Add items :<button onclick="AddItems(${i})">+</button> ${
-            cartArray[i].quantity } 
-            <button onclick="LessItems(${i})">-</button></p>
-            <p class="card-text">Price: ${cartArray[i].price}</p>
-            <button class="btn btn-outline-danger" onclick="removeItems(${i})">Remove</button>
-            </div>
-            </div>`;
-     }else{
-        div1.innerHTML = `<h2>I think You Haven't Bought Anything...🙄</h2>`
-     }
+
+const cartData = document.querySelector("#cartData");
+
+// console.log(cartArray);
+
+function renderArray(){
+
+if(cartArray!=null && cartArray.length>0){
+  for (let i = 0; i < cartArray.length; i++) {
+    cartData.innerHTML += `<div class="card mt-3  " style="width: 18rem;">
+  <div class="card-body  " id="bg">
+    <p class="card-text"> Product: ${
+      cartArray[i].brand + " " + cartArray[i].model
+    }</p>
+    <p class="card-text"> Camera: ${cartArray[i].camera}</p>
+    <p class="card-text">Ram: ${cartArray[i].ram} GB</p>
+    <p class="card-text">Rom: ${cartArray[i].rom} GB</p>
+    <p class="card-text">Quantity: <button class="btn btn-outline-success" onclick="AddQuantity(${i})">+</button> ${
+      cartArray[i].quantity
+    } <button class="btn btn-outline-success" onclick="SubQuantity(${i})">-</button></p>
+    <p class="card-text">Price: ${cartArray[i].price}</p>
+    <button class="btn btn-outline-danger" onclick="removeBtn(${i})">Remove</button>
+  </div>
+</div>`;
+  }
+}else{
+  cartData.innerHTML=`<h2 class="text-center">I Think You Haven't Bought Anything 🙄...</h2>`
+}
 }
 
-renderArr()
+renderArray()
+
+function removeBtn(index){
+  cartArray.splice(index , 1);
+   localStorage.setItem("cartItem", JSON.stringify(cartArray));
+   location.reload();
 
 
-function LessItems(less){
-    if(cartItems[less].quantity===1){
-        cartItems.splice(sub , 1)
-        localStorage.setItem("cartItem", JSON.stringify(cartArray));
-        location.reload()
-       AddAmount()
-    }else{
-        div1.innerHTML = "";
-        cartItems[less].quantity -= 1;
-        renderArray();
-        AddAmount()
-    }
-}
-
-
-function AddItems(Add){
-    div1.innerHTML=''
-    cartItems[Add].quantity+=1;
-    renderArray();
-    AddAmount();
 }
 
 
-function removeItems(){
-    cartItems.splice(index , 1);
+function AddQuantity(add) {
+  cartData.innerHTML=''
+  cartArray[add].quantity+=1;
+  renderArray();
+  total();
+  
+}
+
+
+function SubQuantity(sub){
+   if(cartArray[sub].quantity===1){
+    cartArray.splice(sub , 1);
     localStorage.setItem("cartItem", JSON.stringify(cartArray));
     location.reload();
+    total();
+   }else{
+     cartData.innerHTML = "";
+     cartArray[sub].quantity -= 1;
+     renderArray();
+     total()
+    
+   }
 }
 
+const totalAmount= document.querySelector("#totalAmount");
+let totalPrice=0
+function total(){
 
-const totalAmount = document.querySelector('#h3')
-let totalPrice = 0 ; 
-
-function AddAmount(){
-    for(j=0 ; j<cartItems.length ; j++){
-    totalPrice +=(cartItems[j].price*cartItems[j].quantity)
-    }
-    totalAmount.innerHTML = `<h3 class="text-center mt-5">Total Amount : PKR ${totalPrice} </h3>`
+  for(let j=0 ; j<cartArray.length; j++){
+    totalPrice+=(cartArray[j].price*cartArray[j].quantity);
+  }
+  totalAmount.innerHTML=`<h3 class="text-light text-center mt-5">Total Amount : ${totalPrice} PKR <h3/>`
 }
 
-AddAmount()
+total()
